@@ -4,23 +4,31 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout layoutToAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textView = findViewById(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayFullScreenDialog();
+            }
+        });
+    }
 
-
+    public void displayFullScreenDialog() {
         final Dialog dialog = new Dialog(this, android.R.style.Theme_Light);
         //This is for removing dialog title.
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -36,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(view);
         dialog.show();
+        Button click = view.findViewById(R.id.button);
+        //This is for closing the dialog.
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+            }
+        });
 
     }
 }

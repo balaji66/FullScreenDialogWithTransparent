@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_full_screen_dialog"><u>About Full Screen Dialog</u></string>
+    <string name="x">x</string>
+    <string name="star_star">***** ****</string>
+    <string name="star_1">***** ****</string>
 </resources>
